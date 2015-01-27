@@ -283,7 +283,7 @@ namespace Box.V2.Managers
 
             while (response.StatusCode == HttpStatusCode.Accepted && handleRetry)
             {
-                await TaskEx.Delay(GetTimeDelay(response.Headers));
+                await Task.Delay(GetTimeDelay(response.Headers));
                 response = await ToResponseAsync<Stream>(request, throttle).ConfigureAwait(false);
             }
 
@@ -342,7 +342,7 @@ namespace Box.V2.Managers
 
             while (response.StatusCode == HttpStatusCode.Accepted && handleRetry)
             {
-                await TaskEx.Delay(GetTimeDelay(response.Headers));
+                await Task.Delay(GetTimeDelay(response.Headers));
                 response = await ToResponseAsync<Stream>(request).ConfigureAwait(false);
             }
 
